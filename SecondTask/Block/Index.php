@@ -63,10 +63,10 @@ class Index extends \Magento\Framework\View\Element\Template
             if ($this->_helperData->getGeneralConfig('base_price')) {
                 if ($this->getCurrentProduct()->getTypeId() == 'configurable') {
                     $basePrice = $this->getCurrentProduct()->getPriceInfo()->getPrice('regular_price')->getMinRegularAmount()->getValue();
-                    return 'Base price: ' . $basePrice;
+                    return 'Base price: ' . $basePrice . '<br>';
                 } elseif ($this->getCurrentProduct()->getTypeId() == 'simple') {
                     $basePrice = $this->getCurrentProduct()->getPriceInfo()->getPrice('regular_price')->getValue();
-                    return 'Base price: ' . $basePrice;
+                    return 'Base price: ' . $basePrice . '<br>';
                 } else {
                     return null;
                 }
@@ -83,7 +83,7 @@ class Index extends \Magento\Framework\View\Element\Template
             if ($this->_helperData->getGeneralConfig('final_price')) {
                 if (($this->getCurrentProduct()->getTypeId() == 'configurable' || $this->getCurrentProduct()->getTypeId() == 'simple')) {
                     $finalPrice = $this->getCurrentProduct()->getPriceInfo()->getPrice('final_price')->getValue();
-                    return 'Final price: ' . $finalPrice;
+                    return 'Final price: ' . $finalPrice . '<br>';
                 } else {
                     return null;
                 }
@@ -100,7 +100,7 @@ class Index extends \Magento\Framework\View\Element\Template
             if ($this->_helperData->getGeneralConfig('special_price')) {
                 if (($this->getCurrentProduct()->getTypeId() == 'configurable' || $this->getCurrentProduct()->getTypeId() == 'simple')) {
                     $specialPrice = $this->getCurrentProduct()->getPriceInfo()->getPrice('special_price')->getValue();
-                    return 'Special Price: ' . $specialPrice;
+                    return 'Special Price: ' . $specialPrice . '<br>';
                 } else {
                     return null;
                 }
@@ -135,7 +135,7 @@ class Index extends \Magento\Framework\View\Element\Template
                             $tierPrice = round($item['price'], 0);
                         }
                     }
-                    return 'Tier Price: ' . $tierPrice;
+                    return 'Tier Price: ' . $tierPrice . '<br>';
                 } else {
                     return null;
                 }
@@ -151,7 +151,7 @@ class Index extends \Magento\Framework\View\Element\Template
             if ($this->_helperData->getGeneralConfig('catalog_rule_price')) {
                 if ($this->getCurrentProduct()->getTypeId() == 'configurable' || $this->getCurrentProduct()->getTypeId() == 'simple') {
                     $catalogRule = $this->getCurrentProduct()->getPriceInfo()->getPrice('catalog_rule_price')->getValue();
-                    return 'Catalog Rule Price: ' . $catalogRule;
+                    return 'Catalog Rule Price: ' . $catalogRule . '<br>';
                 } else {
                     return null;
                 }
